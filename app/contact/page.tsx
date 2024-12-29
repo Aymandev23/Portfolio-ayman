@@ -102,7 +102,7 @@ export default function Contact() {
 
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">Service</h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-5">
                   {services.map((service) => (
                     <label
                       key={service}
@@ -123,7 +123,7 @@ export default function Contact() {
 
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">Budget</h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-4">
                   {budgets.map((budget) => (
                     <label
                       key={budget}

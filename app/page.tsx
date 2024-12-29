@@ -150,19 +150,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <SectionHeading 
-            title="Our Clients Can't Say Anything Bad About Us"
-            subtitle="Don't just take our word for it"
-          />
-          <TestimonialsSlider />
-        </div>
-      </section>
 
       {/* Latest Blog Posts Section */}
-      <section className="py-20 bg-zinc-950">
+      <section className="py-20 ">
         <div className="container mx-auto px-4">
           <SectionHeading 
             title="Latest from Our Blog"
@@ -208,6 +198,19 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+      {/* Testimonials */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <SectionHeading 
+            title="Our Clients Can't Say Anything Bad About Us"
+            subtitle="Don't just take our word for it"
+          />
+          <TestimonialsSlider />
+        </div>
+      </section>
+
 
       {/* FAQ Section */}
       <section className="py-20">

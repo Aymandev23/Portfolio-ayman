@@ -50,18 +50,7 @@ export function TestimonialsSlider() {
           transition={{ duration: 0.3 }}
         >
           <GlassCard className="p-8 md:p-12 text-center relative z-10">
-            <div className="text-[#CCFF00] text-6xl font-serif mb-6">&apos;&apos;</div>
-            <p className="text-xl md:text-2xl mb-6">
-              {testimonials[currentIndex].quote}
-            </p>
-            <div className="flex items-center justify-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gray-600" />
-              <div className="text-left">
-                <div className="font-medium">{testimonials[currentIndex].author}</div>
-                <div className="text-gray-400 text-sm">{testimonials[currentIndex].role}</div>
-              </div>
-            </div>
-            <div className="flex justify-between mt-8">
+          <div className="flex items-center gap-4 justify-self-end">
               <button
                 onClick={prev}
                 className="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-full"
@@ -75,6 +64,18 @@ export function TestimonialsSlider() {
                 <ChevronRight className="w-6 h-6" />
               </button>
             </div>
+            <div className="text-[#CCFF00] text-6xl font-serif mb-6">&apos;&apos;</div>
+            <p className="text-xl md:text-2xl mb-6">
+              {testimonials[currentIndex].quote}
+            </p>
+            <div className="flex items-center justify-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-gray-600" />
+              <div className="text-left">
+                <div className="font-medium">{testimonials[currentIndex].author}</div>
+                <div className="text-gray-400 text-sm">{testimonials[currentIndex].role}</div>
+              </div>
+            </div>
+          
           </GlassCard>
         </motion.div>
       </AnimatePresence>

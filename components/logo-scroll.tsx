@@ -4,17 +4,17 @@
 import Image from 'next/image'
 
 const logos = [
-  { src: '/placeholder.svg?height=60&width=120', dot: 'bg-blue-500' },
-  { src: '/placeholder.svg?height=60&width=120', dot: 'bg-cyan-400' },
-  { src: '/placeholder.svg?height=60&width=120', dot: 'bg-green-500' },
-  { src: '/placeholder.svg?height=60&width=120', dot: 'bg-purple-500' },
-  { src: '/placeholder.svg?height=60&width=120', dot: 'bg-orange-500' },
+  { src: '/placeholder.svg?height=60&width=120'},
+  { src: '/placeholder.svg?height=60&width=120' },
+  { src: '/placeholder.svg?height=60&width=120'},
+  { src: '/placeholder.svg?height=60&width=120' },
+  { src: '/placeholder.svg?height=60&width=120'},
   // Second row
-  { src: '/placeholder.svg?height=60&width=120', dot: 'bg-red-500' },
-  { src: '/placeholder.svg?height=60&width=120', dot: 'bg-blue-600' },
-  { src: '/placeholder.svg?height=60&width=120', dot: 'bg-blue-500' },
-  { src: '/placeholder.svg?height=60&width=120', dot: 'bg-red-500' },
-  { src: '/placeholder.svg?height=60&width=120', dot: 'bg-purple-500' },
+  { src: '/placeholder.svg?height=60&width=120' },
+  { src: '/placeholder.svg?height=60&width=120' },
+  { src: '/placeholder.svg?height=60&width=120' },
+  { src: '/placeholder.svg?height=60&width=120' },
+  { src: '/placeholder.svg?height=60&width=120' },
 ]
 
 export function LogoScroll() {
@@ -40,7 +40,7 @@ export function LogoScroll() {
                   key={index}
                   className="flex-shrink-0 bg-white/5 backdrop-blur-sm rounded-2xl p-8 relative group hover:bg-white/10 transition-colors"
                 >
-                  <div className={`absolute -top-1 -right-1 w-3 h-3 rounded-full ${logo.dot}`} />
+                  <div className={`absolute -top-1 -right-1 w-3 h-3 rounded-full ${logo}`} />
                   <div className="w-[120px] h-[60px] relative grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 transition-all">
                     <Image
                       src={logo.src}
@@ -62,7 +62,7 @@ export function LogoScroll() {
                   key={index}
                   className="flex-shrink-0 bg-white/5 backdrop-blur-sm rounded-2xl p-8 relative group hover:bg-white/10 transition-colors"
                 >
-                  <div className={`absolute -top-1 -right-1 w-3 h-3 rounded-full ${logo.dot}`} />
+                  <div className={`absolute -top-1 -right-1 w-3 h-3 rounded-full ${logo}`} />
                   <div className="w-[120px] h-[60px] relative grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 transition-all">
                     <Image
                       src={logo.src}

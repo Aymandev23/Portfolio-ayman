@@ -8,6 +8,9 @@ import { Nav } from '@/components/nav'
 import { GlassCard } from '@/components/ui/glass-card'
 import { fadeIn, staggerContainer } from '@/utils/animation-variants'
 import { useState } from 'react'
+import { Contact } from '@/components/contact-section'
+import { Footer } from '@/components/footer'
+
 
 const articles = [
   {
@@ -63,7 +66,9 @@ export default function Blog() {
     ? articles.filter(article => article.category === selectedCategory)
     : articles
   return (
-    <div className="min-h-screen bg-black">
+    <><div className="min-h-screen bg-black">
+      {/* Background gradient */}
+      <div className="fixed inset-0 bg-gradient-to-b from-[#CCFF00]/20 via-transparent to-emerald-900/20 pointer-events-none" />
       <Nav />
 
       <main className="pt-24 pb-16">
@@ -99,8 +104,7 @@ export default function Blog() {
                       src={article.image}
                       alt={article.title}
                       fill
-                      className="object-cover"
-                    />
+                      className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
                     <div className="absolute bottom-4 left-4 right-4">
                       <h3 className="text-xl font-bold mb-2">{article.title}</h3>
@@ -121,8 +125,7 @@ export default function Blog() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 bg-white/5 border border-white/10 rounded-l-full px-6 py-3 outline-none focus:border-[#CCFF00]"
-              />
+                className="flex-1 bg-white/5 border border-white/10 rounded-l-full px-6 py-3 outline-none focus:border-[#CCFF00]" />
               <button className="bg-[#CCFF00] text-black px-6 py-3 rounded-r-full">
                 <ArrowRight className="w-5 h-5" />
               </button>
@@ -136,11 +139,9 @@ export default function Blog() {
                 <button
                   key={category}
                   onClick={() => handleCategorySelect(category)}
-                  className={`px-4 py-2 rounded-full border transition-colors ${
-                    selectedCategory === category
+                  className={`px-4 py-2 rounded-full border transition-colors ${selectedCategory === category
                       ? 'bg-[#CCFF00] text-black border-[#CCFF00]'
-                      : 'border-white/10 hover:bg-white/5'
-                  }`}
+                      : 'border-white/10 hover:bg-white/5'}`}
                 >
                   {category}
                 </button>
@@ -167,8 +168,7 @@ export default function Blog() {
                         src={article.image}
                         alt={article.title}
                         fill
-                        className="object-cover"
-                      />
+                        className="object-cover" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
                       <div className="absolute bottom-4 left-4 right-4">
                         <h3 className="text-xl font-bold mb-2">{article.title}</h3>
@@ -180,28 +180,14 @@ export default function Blog() {
               ))}
             </div>
           </div>
+ 
+ {/* CTA Section */}
+ <Contact />
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-            className="bg-[#CCFF00] rounded-3xl p-8 md:p-16 text-center text-black relative overflow-hidden group cursor-pointer"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-            <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Let&apos;s Collab</h2>
-              <p className="text-black/60 mb-8">
-                Fill our form, book a call or contact us via email and let&apos;s see if we are good fit!
-              </p>
-              <button className="bg-black text-white px-8 py-3 rounded-full">
-                Book a call
-              </button>
-            </div>
-          </motion.div>
+      
         </div>
       </main>
-    </div>
+    </div><Footer /></>
   )
 }
 

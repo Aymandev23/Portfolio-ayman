@@ -1,14 +1,17 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { GlassCard } from '@/components/ui/glass-card'
 import { fadeIn, staggerContainer } from '@/utils/animation-variants'
 import { Nav } from '@/components/nav'
 import { FAQSection } from '@/components/faq-section'
-import { ArrowRight, Figma, Framer, Globe, Instagram, Twitter, Linkedin } from 'lucide-react'
+import { SectionHeading } from '@/components/ui/section-heading'
+import { Figma, Framer, Globe, Instagram, Twitter, Linkedin } from 'lucide-react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
+import { Footer } from '@/components/footer'
+import { Contact } from '@/components/contact-section'
 
 const tools = [
   { name: 'Webflow', icon: <Globe className="w-8 h-8" /> },
@@ -50,13 +53,60 @@ const coreValues = [
 ]
 
 export default function About() {
-  const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200])
+
+
 
   return (
-    <div className="min-h-screen bg-black">
+    <><div className="min-h-screen bg-black">
+      {/* Background gradient */}
+      <div className="fixed inset-0 bg-gradient-to-b from-[#CCFF00]/20 via-transparent to-emerald-900/20 pointer-events-none" />
       <Nav />
-      
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <motion.div
+              variants={fadeIn}
+              className="inline-block px-4 py-1 bg-white/10 rounded-full text-sm mb-6 backdrop-blur-md"
+            >
+              About Us
+            </motion.div>
+            <motion.h1
+              variants={fadeIn}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            >
+              We Build Digital{' '}
+              <span className="text-[#CCFF00]">Products</span>{' '}
+              That Drive Growth
+            </motion.h1>
+            <motion.p
+              variants={fadeIn}
+              className="text-gray-400 mb-8 text-lg md:text-xl"
+            >
+              From concept to launch, we create digital experiences that users love and businesses rely on.
+            </motion.p>
+            <motion.div
+              variants={fadeIn}
+              className="flex justify-center gap-4"
+            >
+              <button className="bg-[#CCFF00] text-black px-8 py-3 rounded-full font-medium hover:bg-[#CCFF00]/90 transition-colors">
+                Get Started
+              </button>
+              <button className="bg-white/10 text-white px-8 py-3 rounded-full font-medium hover:bg-white/20 transition-colors">
+                View Our Work
+              </button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Main Content */}
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           <div className="grid gap-6 md:grid-cols-2 mb-12">
@@ -116,8 +166,7 @@ export default function About() {
                           repeat: Infinity,
                           delay: i * 0.2,
                         },
-                      }}
-                    />
+                      }} />
                   ))}
                 </div>
               </GlassCard>
@@ -221,8 +270,7 @@ export default function About() {
                       src="/placeholder.svg?height=400&width=400"
                       alt="Milos Bundalo"
                       fill
-                      className="object-cover"
-                    />
+                      className="object-cover" />
                   </div>
                 </div>
                 <div className="w-full md:w-2/3">
@@ -247,80 +295,22 @@ export default function About() {
             </GlassCard>
           </motion.div>
 
-          {/* Our Journey Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl font-bold mb-8 text-center">Our Journey</h2>
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#CCFF00]" />
-              {[
-                { year: '2018', title: 'Founded', description: 'Eclipso Studio was born with a vision to revolutionize digital design.' },
-                { year: '2020', title: 'Expansion', description: 'We expanded our team and services, venturing into web development.' },
-                { year: '2022', title: 'Global Reach', description: 'Our client base expanded globally, working with brands across continents.' },
-                { year: '2024', title: 'Innovation Hub', description: 'Launched our innovation lab, pushing the boundaries of digital experiences.' },
-              ].map((milestone, index) => (
-                <motion.div
-                  key={milestone.year}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                  className={`flex items-center mb-8 ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}
-                >
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'text-right pr-8' : 'pl-8'}`}>
-                    <GlassCard className="p-6 inline-block">
-                      <h3 className="text-xl font-bold mb-2">{milestone.title}</h3>
-                      <p className="text-gray-400">{milestone.description}</p>
-                    </GlassCard>
-                  </div>
-                  <div className="w-1/2 flex justify-center">
-                    <div className="bg-[#CCFF00] text-black rounded-full w-16 h-16 flex items-center justify-center font-bold text-xl">
-                      {milestone.year}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            style={{ y }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              Frequently asked Questions
-            </h2>
-            <FAQSection />
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-            className="bg-[#CCFF00] rounded-3xl p-8 md:p-16 text-center text-black relative overflow-hidden group cursor-pointer"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative z-10"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Let&apos;s Collab</h2>
-              <button className="bg-black text-white px-8 py-3 rounded-full inline-flex items-center gap-2 group/btn">
-                Book a call
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-              </button>
-            </motion.div>
-          </motion.div>
+         
+           {/* FAQ Section */}
+               <section className="py-20">
+                 <div className="container mx-auto px-4">
+                   <SectionHeading title="Frequently asked Questions" />
+                   <FAQSection />
+                 </div>
+               </section>
+ {/* CTA Section */}
+ <Contact />
+         
         </div>
       </main>
+
     </div>
+    <Footer /></>
   )
 }
 

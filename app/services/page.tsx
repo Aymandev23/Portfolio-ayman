@@ -1,13 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Code, Palette, Lightbulb,  ArrowUpRight, CheckCircle2, Star } from 'lucide-react'
+import { Code, Palette, Lightbulb, CheckCircle2} from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Nav } from '@/components/nav'
 import { GlassCard } from '@/components/ui/glass-card'
-import { fadeIn, staggerContainer, floatingAnimation } from '@/utils/animation-variants'
+import { fadeIn, staggerContainer} from '@/utils/animation-variants'
 import { TestimonialsSlider } from '@/components/testimonials-slider'
+import { FAQSection } from '@/components/faq-section'
+import { SectionHeading } from '@/components/ui/section-heading'
+import { Footer } from '@/components/footer'
+import{Contact} from '@/components/contact-section'
 
 const services = [
   {
@@ -131,9 +134,11 @@ const pricingPlans = [
 
 export default function Services() {
   return (
-    <div className="min-h-screen bg-black">
+    <><div className="min-h-screen bg-black">
+      {/* Background gradient */}
+      <div className="fixed inset-0 bg-gradient-to-b from-[#CCFF00]/20 via-transparent to-emerald-900/20 pointer-events-none" />
       <Nav />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
@@ -267,8 +272,7 @@ export default function Services() {
                     alt={tech.name}
                     width={80}
                     height={80}
-                    className="w-12 h-12 md:w-16 md:h-16"
-                  />
+                    className="w-12 h-12 md:w-16 md:h-16" />
                 </div>
                 <span className="text-sm text-gray-400">{tech.name}</span>
               </motion.div>
@@ -317,128 +321,9 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Case Studies Preview */}
-      <section className="py-20 bg-zinc-950">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-              <p className="text-gray-400 max-w-lg">
-                Take a look at some of our recent work and see how we&apos;ve helped other businesses grow.
-              </p>
-            </div>
-            <Link
-              href="/work"
-              className="hidden md:flex items-center gap-2 text-[#CCFF00] hover:gap-4 transition-all"
-            >
-              View All Projects
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[1, 2].map((item) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <Link href="/work">
-                  <GlassCard className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src="/placeholder.svg?height=600&width=800"
-                      alt="Project"
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
-                    <div className="absolute bottom-8 left-8 right-8">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h3 className="text-2xl font-bold mb-2">Project Name</h3>
-                          <p className="text-gray-300">Category</p>
-                        </div>
-                        <div className="bg-white/10 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                          <ArrowUpRight className="w-6 h-6" />
-                        </div>
-                      </div>
-                    </div>
-                  </GlassCard>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-8 text-center md:hidden">
-            <Link
-              href="/work"
-              className="inline-flex items-center gap-2 text-[#CCFF00]"
-            >
-              View All Projects
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+     
 
-      {/* Client Testimonials Section */}
-      <section className="py-20 bg-zinc-950">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">What Our Clients Say</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: 'Sarah Johnson',
-                role: 'CEO, TechStart',
-                image: '/placeholder.svg?height=100&width=100',
-                quote: 'Eclipso Studio transformed our online presence. Their innovative approach and attention to detail exceeded our expectations.',
-              },
-              {
-                name: 'Michael Chen',
-                role: 'Marketing Director, GrowthCo',
-                image: '/placeholder.svg?height=100&width=100',
-                quote: 'Working with Eclipso was a game-changer for our brand. Their designs are not just beautiful, but strategically crafted for conversion.',
-              },
-              {
-                name: 'Emily Rodriguez',
-                role: 'Founder, EcoSolutions',
-                image: '/placeholder.svg?height=100&width=100',
-                quote: 'The team at Eclipso truly understands how to blend aesthetics with functionality. Our new website has significantly boosted our user engagement.',
-              },
-            ].map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <GlassCard className="p-6 h-full flex flex-col">
-                  <div className="flex items-center mb-4">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      width={50}
-                      height={50}
-                      className="rounded-full mr-4"
-                    />
-                    <div>
-                      <h3 className="font-bold">{testimonial.name}</h3>
-                      <p className="text-sm text-gray-400">{testimonial.role}</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-300 mb-4 flex-grow">{testimonial.quote}</p>
-                  <div className="flex text-[#CCFF00]">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-current" />
-                    ))}
-                  </div>
-                </GlassCard>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+ 
 
       {/* Testimonials Section */}
       <section className="py-20">
@@ -453,39 +338,19 @@ export default function Services() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* FAQ Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-            className="bg-[#CCFF00] rounded-3xl p-8 md:p-16 text-center text-black relative overflow-hidden"
-          >
-            <motion.div
-              variants={floatingAnimation}
-              initial="initial"
-              animate="animate"
-              className="relative z-10"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Ready to Start Your Project?</h2>
-              <p className="text-black/60 mb-8 max-w-2xl mx-auto">
-                Let&apos;s discuss your project and see how we can help you achieve your business goals.
-              </p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                className="bg-black text-white px-8 py-3 rounded-full font-medium inline-flex items-center gap-2 group"
-              >
-                Schedule a Call
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-            </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine" />
-          </motion.div>
+          <SectionHeading title="Frequently asked Questions" />
+          <FAQSection />
         </div>
       </section>
-    </div>
+
+
+      {/* CTA Section */}
+      <Contact />
+    </div><Footer /></>
+    
   )
 }
 

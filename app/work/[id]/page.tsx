@@ -7,6 +7,8 @@ import { ArrowRight, ExternalLink } from 'lucide-react'
 import { Nav } from '@/components/nav'
 import { GlassCard } from '@/components/ui/glass-card'
 import { fadeIn, staggerContainer } from '@/utils/animation-variants'
+import { Contact } from '@/components/contact-section'
+import { Footer } from '@/components/footer'
 
 const projects = {
   givebacks: {
@@ -143,9 +145,11 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
   if (!project) return null
 
   return (
-    <div className="min-h-screen bg-black">
+    <><div className="min-h-screen bg-black">
+      {/* Background gradient */}
+      <div className="fixed inset-0 bg-gradient-to-b from-[#CCFF00]/20 via-transparent to-emerald-900/20 pointer-events-none" />
       <Nav />
-      
+
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           <div className="relative h-[70vh] rounded-3xl overflow-hidden mb-16">
@@ -153,8 +157,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
               src={project.hero}
               alt={project.title}
               fill
-              className="object-cover"
-            />
+              className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
           </div>
 
@@ -238,8 +241,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
                     src={image}
                     alt={`${project.title} gallery ${index + 1}`}
                     fill
-                    className="object-cover"
-                  />
+                    className="object-cover" />
                 </div>
               </motion.div>
             ))}
@@ -253,8 +255,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
                   src={project.nextProject.image}
                   alt={project.nextProject.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                  className="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
                 <div className="absolute bottom-8 left-8">
                   <h3 className="text-3xl font-bold">{project.nextProject.title}</h3>
@@ -268,8 +269,11 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
             </Link>
           </div>
         </div>
+
+        {/* CTA Section */}
+        <Contact />
       </main>
-    </div>
+    </div><Footer /></>
   )
 }
 

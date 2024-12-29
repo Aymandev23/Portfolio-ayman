@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Nav } from '@/components/nav'
 import { fadeIn } from '@/utils/animation-variants'
 import { GlassCard } from '@/components/ui/glass-card'
-
+import { Footer } from '@/components/footer'
 const services = [
   'Web Design',
   'Webflow Development',
@@ -24,9 +24,11 @@ const budgets = [
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-black">
+    <><div className="min-h-screen bg-black">
+      {/* Background gradient */}
+      <div className="fixed inset-0 bg-gradient-to-b from-[#CCFF00]/20 via-transparent to-emerald-900/20 pointer-events-none" />
       <Nav />
-      
+
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div
@@ -51,8 +53,7 @@ export default function Contact() {
                     <defs>
                       <path
                         id="circle"
-                        d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-                      />
+                        d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
                     </defs>
                     <text className="text-[14px]">
                       <textPath href="#circle" className="text-black font-medium">
@@ -69,40 +70,35 @@ export default function Contact() {
 
             <form className="space-y-6">
               <h2 className="text-xl font-bold mb-6">Fill out form</h2>
-              
+
               <div className="grid md:grid-cols-2 gap-4">
                 <input
                   type="text"
                   placeholder="Name"
-                  className="w-full px-4 py-3 rounded-full bg-white/5 border border-white/10 focus:border-[#CCFF00] outline-none transition-colors"
-                />
+                  className="w-full px-4 py-3 rounded-full bg-white/5 border border-white/10 focus:border-[#CCFF00] outline-none transition-colors" />
                 <input
                   type="email"
                   placeholder="Email *"
                   required
-                  className="w-full px-4 py-3 rounded-full bg-white/5 border border-white/10 focus:border-[#CCFF00] outline-none transition-colors"
-                />
+                  className="w-full px-4 py-3 rounded-full bg-white/5 border border-white/10 focus:border-[#CCFF00] outline-none transition-colors" />
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">
                 <input
                   type="text"
                   placeholder="Company"
-                  className="w-full px-4 py-3 rounded-full bg-white/5 border border-white/10 focus:border-[#CCFF00] outline-none transition-colors"
-                />
+                  className="w-full px-4 py-3 rounded-full bg-white/5 border border-white/10 focus:border-[#CCFF00] outline-none transition-colors" />
                 <input
                   type="url"
                   placeholder="Website Url"
-                  className="w-full px-4 py-3 rounded-full bg-white/5 border border-white/10 focus:border-[#CCFF00] outline-none transition-colors"
-                />
+                  className="w-full px-4 py-3 rounded-full bg-white/5 border border-white/10 focus:border-[#CCFF00] outline-none transition-colors" />
               </div>
 
               <textarea
                 placeholder="Message *"
                 required
                 rows={6}
-                className="w-full px-4 py-3 rounded-3xl bg-white/5 border border-white/10 focus:border-[#CCFF00] outline-none transition-colors"
-              />
+                className="w-full px-4 py-3 rounded-3xl bg-white/5 border border-white/10 focus:border-[#CCFF00] outline-none transition-colors" />
 
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">Service</h3>
@@ -116,8 +112,7 @@ export default function Contact() {
                         type="checkbox"
                         name="service"
                         value={service}
-                        className="peer sr-only"
-                      />
+                        className="peer sr-only" />
                       <span className="px-4 py-2 rounded-full border border-white/10 peer-checked:bg-[#CCFF00] peer-checked:text-black peer-checked:border-[#CCFF00] transition-colors">
                         {service}
                       </span>
@@ -138,8 +133,7 @@ export default function Contact() {
                         type="radio"
                         name="budget"
                         value={budget}
-                        className="peer sr-only"
-                      />
+                        className="peer sr-only" />
                       <span className="px-4 py-2 rounded-full border border-white/10 peer-checked:bg-[#CCFF00] peer-checked:text-black peer-checked:border-[#CCFF00] transition-colors">
                         {budget}
                       </span>
@@ -157,8 +151,11 @@ export default function Contact() {
             </form>
           </GlassCard>
         </div>
+
+
       </main>
-    </div>
+    </div><Footer /></>
+    
   )
 }
 

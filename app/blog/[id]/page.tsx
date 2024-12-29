@@ -7,6 +7,8 @@ import {  Facebook, Twitter, Linkedin, Copy } from 'lucide-react'
 import { Nav } from '@/components/nav'
 import { GlassCard } from '@/components/ui/glass-card'
 import { fadeIn, staggerContainer } from '@/utils/animation-variants'
+import { Contact } from '@/components/contact-section'
+import { Footer } from '@/components/footer'
 
 const articles = {
   'enhancing-brand-identity': {
@@ -141,9 +143,11 @@ export default function ArticleDetail({ params }: { params: { id: string } }) {
   if (!article) return null
 
   return (
-    <div className="min-h-screen bg-black">
+    <><div className="min-h-screen bg-black">
+      {/* Background gradient */}
+      <div className="fixed inset-0 bg-gradient-to-b from-[#CCFF00]/20 via-transparent to-emerald-900/20 pointer-events-none" />
       <Nav />
-      
+
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           <div className="relative h-[70vh] rounded-3xl overflow-hidden mb-16">
@@ -151,8 +155,7 @@ export default function ArticleDetail({ params }: { params: { id: string } }) {
               src={article.image}
               alt={article.title}
               fill
-              className="object-cover"
-            />
+              className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
             <div className="absolute top-8 left-8">
               <span className="bg-[#CCFF00] text-black text-sm px-3 py-1 rounded-full">
@@ -172,7 +175,7 @@ export default function ArticleDetail({ params }: { params: { id: string } }) {
                 <motion.h1 variants={fadeIn} className="text-4xl md:text-5xl font-bold mb-6">
                   {article.title}
                 </motion.h1>
-                
+
                 <motion.p variants={fadeIn} className="text-gray-400 mb-8">
                   {article.date}
                 </motion.p>
@@ -196,7 +199,7 @@ export default function ArticleDetail({ params }: { params: { id: string } }) {
                   {article.content.intro}
                 </motion.p>
 
-            
+
                 {article.content.conclusion && (
                   <motion.div variants={fadeIn}>
                     <h2 className="text-2xl font-bold mb-4">Final Thoughts</h2>
@@ -258,8 +261,7 @@ export default function ArticleDetail({ params }: { params: { id: string } }) {
                         src={related.image}
                         alt={related.title}
                         fill
-                        className="object-cover"
-                      />
+                        className="object-cover" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
                       <div className="absolute bottom-4 left-4 right-4">
                         <h3 className="text-xl font-bold">{related.title}</h3>
@@ -271,27 +273,11 @@ export default function ArticleDetail({ params }: { params: { id: string } }) {
             </div>
           </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-            className="bg-[#CCFF00] rounded-3xl p-8 md:p-16 text-center text-black relative overflow-hidden group cursor-pointer"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-            <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Let&apos;s Collab</h2>
-              <p className="text-black/60 mb-8">
-                Fill our form, book a call or contact us via email and let&apos;s see if we are good fit!
-              </p>
-              <button className="bg-black text-white px-8 py-3 rounded-full">
-                Book a call
-              </button>
-            </div>
-          </motion.div>
+          {/* CTA Section */}
+          <Contact />
         </div>
       </main>
-    </div>
+    </div><Footer /></>
   )
 }
 

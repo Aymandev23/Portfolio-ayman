@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { GlassCard } from '@/components/ui/glass-card'
 import { SectionHeading } from '@/components/ui/section-heading'
-import { fadeIn, staggerContainer } from '@/utils/animation-variants'
+import { fadeIn } from '@/utils/animation-variants'
 import { useRef, useState } from 'react'
 
 const milestones = [

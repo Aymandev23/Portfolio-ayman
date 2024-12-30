@@ -12,6 +12,7 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { Footer } from '@/components/footer'
 import { Contact } from '@/components/contact-section'
+import{OurJourney} from '@/components/our-journey'
 
 const tools = [
   { name: 'Webflow', icon: <Globe className="w-8 h-8" /> },
@@ -253,7 +254,7 @@ export default function About() {
               ))}
             </div>
           </motion.div>
-
+          <OurJourney />
           {/* Updated Team Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

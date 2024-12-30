@@ -20,10 +20,7 @@ const logos = [
 export function LogoScroll() {
   return (
     <section className="py-20 relative overflow-hidden">
-      {/* Background Number */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <span className="text-[20rem] font-bold text-gray-100/10">04</span>
-      </div>
+   
       
       {/* Content */}
       <div className="relative z-10">

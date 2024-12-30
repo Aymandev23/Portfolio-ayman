@@ -196,6 +196,7 @@ export default function Services() {
                 transition={{ delay: index * 0.2 }}
               >
                 <GlassCard className="p-8 h-full">
+                  
                   <div className="bg-[#CCFF00]/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
                     <div className="text-[#CCFF00]">{service.icon}</div>
                   </div>
@@ -235,8 +236,8 @@ export default function Services() {
                 transition={{ delay: index * 0.1 }}
                 className="relative group"
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#CCFF00] to-emerald-600 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 blur"></div>
-                <div className="relative bg-black rounded-3xl p-8">
+                <div className=" absolute inset-0 bg-gradient-to-br from-[#CCFF00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl "></div>
+                <div className="relative backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl p-8">
                   <div className="text-4xl font-bold text-[#CCFF00] mb-4">{step.number}</div>
                   <h3 className="text-xl font-bold mb-2">{step.title}</h3>
                   <p className="text-gray-400">{step.description}</p>

@@ -5,13 +5,16 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { GlassCard } from '@/components/ui/glass-card'
+import ScrollProgressBar from '@/components/scroll-progress-bar'
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-        <GlassCard className="m-2 p-0">
+    
+    <header className="fixed top-0 left-0 right-0 z-50"> <ScrollProgressBar />
+      <GlassCard className="m-2 p-0">
+     
     <nav className="container mx-auto flex items-center justify-between" aria-label="Main navigation">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
@@ -51,7 +54,7 @@ export function Nav() {
           </button>
         </div>
       </div>
-
+    
       {/* Mobile menu */}
       {isOpen && (
         <motion.div 
@@ -81,6 +84,7 @@ export function Nav() {
     </nav>
     </GlassCard>
     </header>
+  
   )
 }
 
